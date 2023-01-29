@@ -1,0 +1,78 @@
+.item-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  height: 540px;
+  margin: 0 10px 20px 0;
+  padding: 10px;
+  text-overflow: ellipsis;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), -23px 0 20px -23px rgba(0, 0, 0, 0.6),
+    23px 0 20px -23px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  overflow: hidden;
+}
+
+.item__img {
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item__review {
+  margin-top: auto;
+}
+
+.item__buy {
+  width: 100%;
+  display: inline-block;
+  line-height: 45px;
+  margin-top: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1) inset;
+  border: none;
+  border-radius: 45px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.item__buy:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.item__del {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, .1) inset;
+  color: #000;
+  background: rgb(214, 212, 212);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.item__del:hover {
+  color: #fff;
+  background: #d41c1c;
+}
