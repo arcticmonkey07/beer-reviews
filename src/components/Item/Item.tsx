@@ -1,7 +1,7 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addReviewToCart, delReview } from "../../store/actions/review";
 import "./Item.css";
+import { RootState } from './../../store/types';
 
 type PropsType = {
   reviews: Array<Object>;
@@ -9,11 +9,12 @@ type PropsType = {
 
 const Item = ({ reviews }: PropsType) => {
   const dispatch = useDispatch();
-
+  const dark = useSelector(({ review }: RootState) => review.isDarkTheme);
+  
   return (
     <>
       {reviews?.map((item: any) => (
-        <div className="item item-container" key={item.id}>
+        <div className={`${"item"} ${dark ? "item-dark" : ""}`} key={item.uuid}>
           <img
             className="item__img"
             src={item.imgSrc ? item.imgSrc : "img/erdinger-wiesbier.jpg"}
@@ -29,7 +30,7 @@ const Item = ({ reviews }: PropsType) => {
           </button>
           <button
             className="item__del"
-            onClick={() => dispatch(delReview(item.id))}
+            onClick={() => dispatch(delReview(item.uuid))}
           >
             X
           </button>

@@ -5,6 +5,7 @@
 }
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -20,14 +21,21 @@
   overflow: hidden;
 }
 
+.item-dark {
+  background-color: rgb(207, 206, 206);
+}
+
 .item__img {
   width: 100px;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .item__review {
+  height: 180px;
   margin-top: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .item__buy {
@@ -51,11 +59,19 @@
   transition: all .3s;
 }
 
+.item-dark .item__buy {
+  background-color: rgb(169, 169, 169);
+}
+
 .item__buy:hover {
   background: #2EE59D;
   box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
   color: white;
   transform: translateY(-7px);
+}
+
+.item-dark .item__buy:hover {
+  background-color: #1b855b;
 }
 
 .item__del {
@@ -75,4 +91,8 @@
 .item__del:hover {
   color: #fff;
   background: #d41c1c;
+}
+
+.item-dark .item__del {
+  background-color: rgb(156, 156, 156);
 }

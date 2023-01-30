@@ -1,11 +1,10 @@
-.App {
-  margin: 20px;
+.content {
+  padding: 20px;
   text-align: center;
 }
 
-.App-header {
-  padding: 0 30px;
-  min-height: 100vh;
+.content-dark {
+  background-color: rgb(153, 153, 153);
 }
 
 .form {
