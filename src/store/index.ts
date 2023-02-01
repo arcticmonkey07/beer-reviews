@@ -1,8 +1,13 @@
-import { combineReducers } from "redux";
-import reviewReducer from "./reducers/review";
+import { configureStore } from "@reduxjs/toolkit";
+import reviewReducer from "./reviewSlice";
 
-const rootReducer = combineReducers({
-  review: reviewReducer,
+const store = configureStore({
+  reducer: {
+    review: reviewReducer,
+  }
 });
 
-export default rootReducer;
+export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

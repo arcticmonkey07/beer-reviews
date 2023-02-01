@@ -1,20 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
-import { addReviewToCart, delReview } from "../../store/actions/review";
+import { FC } from "react";
+// import { useDispatch } from "react-redux";
+// import { addReviewToCart, delReview } from "../../store/actions/review";
 import "./Item.css";
-import { RootState } from './../../store/types';
+import { useAppSelector } from "../../hooks/hook";
 
-type PropsType = {
-  reviews: Array<Object>;
-};
+const Item: FC = () => {
+  // const dispatch = useDispatch();
+  const reviews = useAppSelector(state => state.review.reviews);
 
-const Item = ({ reviews }: PropsType) => {
-  const dispatch = useDispatch();
-  const dark = useSelector(({ review }: RootState) => review.isDarkTheme);
-  
   return (
     <>
       {reviews?.map((item: any) => (
-        <div className={`${"item"} ${dark ? "item-dark" : ""}`} key={item.uuid}>
+        <div className="item" key={item.id}>
           <img
             className="item__img"
             src={item.imgSrc ? item.imgSrc : "img/erdinger-wiesbier.jpg"}
@@ -24,13 +21,13 @@ const Item = ({ reviews }: PropsType) => {
           <p className="item__review">{item.text}</p>
           <button
             className="item__buy"
-            onClick={() => dispatch(addReviewToCart(item))}
+            // onClick={() => dispatch(addReviewToCart(item))}
           >
             Buy Item
           </button>
           <button
             className="item__del"
-            onClick={() => dispatch(delReview(item.uuid))}
+            // onClick={() => dispatch(delReview(item.uuid))}
           >
             X
           </button>
@@ -41,4 +38,3 @@ const Item = ({ reviews }: PropsType) => {
 };
 
 export default Item;
-// img/erdinger-wiesbier.jpg"
